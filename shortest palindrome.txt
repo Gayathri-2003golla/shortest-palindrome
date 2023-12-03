@@ -1,0 +1,23 @@
+def shortest_palindrome(s):
+    def longest_palindrome_prefix(s):
+        rev_s = s[::-1]
+        for i in range(len(s), 0, -1):
+            if s[:i] == rev_s[-i:]:
+                return i
+        return 0
+
+    prefix_length = longest_palindrome_prefix(s)
+
+ 
+    result = s[prefix_length:][::-1] + s
+
+    return result
+
+input_string1 = "aacecaaa"
+input_string2 = "abcd"
+
+result1 = shortest_palindrome(input_string1)
+result2 = shortest_palindrome(input_string2)
+
+print(result1)  
+print(result2) 
